@@ -1,152 +1,152 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+// const path = require(`path`);
+// const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = async ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+// exports.onCreateNode = async ({ node, getNode, actions }) => {
+//   const { createNodeField } = actions;
 
-  // select only markdown
-  if (node.internal.type === `MarkdownRemark`) {
-    // Making type
-    const makeType = () => {
-      const split = node.fileAbsolutePath.split('content/')[1];
-      let type = '';
-      if (split.indexOf('/') > 0) {
-        [type] = split.split('/');
-      } else {
-        type = 'pages';
-      }
-      return type;
-    };
+//   // select only markdown
+//   if (node.internal.type === `MarkdownRemark`) {
+//     // Making type
+//     const makeType = () => {
+//       const split = node.fileAbsolutePath.split('content/')[1];
+//       let type = '';
+//       if (split.indexOf('/') > 0) {
+//         [type] = split.split('/');
+//       } else {
+//         type = 'pages';
+//       }
+//       return type;
+//     };
 
-    const makeSlug = () => {
-      const split = node.fileAbsolutePath.split('content/')[1];
-      let slug = '';
-      if (split.indexOf('/') > 0) {
-        [, slug] = split.split('/');
-      } else {
-        slug = split;
-      }
-      return slug.replace('.mdx', '').replace('.md', '');
-    };
+//     const makeSlug = () => {
+//       const split = node.fileAbsolutePath.split('content/')[1];
+//       let slug = '';
+//       if (split.indexOf('/') > 0) {
+//         [, slug] = split.split('/');
+//       } else {
+//         slug = split;
+//       }
+//       return slug.replace('.mdx', '').replace('.md', '');
+//     };
 
-    // create slugs
-    await createNodeField({
-      node,
-      name: `slug`,
-      value: makeSlug(),
-    });
+//     // create slugs
+//     await createNodeField({
+//       node,
+//       name: `slug`,
+//       value: makeSlug(),
+//     });
 
-    // Making type
-    await createNodeField({
-      node,
-      name: `type`,
-      value: makeType(),
-    });
+//     // Making type
+//     await createNodeField({
+//       node,
+//       name: `type`,
+//       value: makeType(),
+//     });
 
-    const basePath = `content`;
+//     const basePath = `content`;
 
-    // create fullPaths
-    const fullPath = createFilePath({ node, getNode, basePath });
+//     // create fullPaths
+//     const fullPath = createFilePath({ node, getNode, basePath });
 
-    await createNodeField({
-      node,
-      name: `fullPath`,
-      value: fullPath,
-    });
-  }
-};
+//     await createNodeField({
+//       node,
+//       name: `fullPath`,
+//       value: fullPath,
+//     });
+//   }
+// };
 
-exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions;
+// exports.createPages = async ({ actions, graphql }) => {
+//   const { createPage } = actions;
 
-  // #########
-  // PORTFOLIO
-  // #########
-  const getPortfolio = () => {
-    return graphql(`
-      query {
-        allMarkdownRemark(
-          filter: { fields: { type: { eq: "portfolio" } } }
-          sort: { order: DESC, fields: frontmatter___date }
-        ) {
-          edges {
-            node {
-              frontmatter {
-                thumb
-              }
-              fields {
-                type
-                slug
-                fullPath
-              }
-            }
-          }
-        }
-      }
-    `);
-  };
+//   // #########
+//   // PORTFOLIO
+//   // #########
+//   const getPortfolio = () => {
+//     return graphql(`
+//       query {
+//         allMarkdownRemark(
+//           filter: { fields: { type: { eq: "portfolio" } } }
+//           sort: { order: DESC, fields: frontmatter___date }
+//         ) {
+//           edges {
+//             node {
+//               frontmatter {
+//                 thumb
+//               }
+//               fields {
+//                 type
+//                 slug
+//                 fullPath
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `);
+//   };
 
-  const portfolioQl = await getPortfolio();
+//   const portfolioQl = await getPortfolio();
 
-  if (portfolioQl.errors) throw new Error(portfolioQl.errors);
+//   if (portfolioQl.errors) throw new Error(portfolioQl.errors);
 
-  // creating main portfolio page
-  createPage({
-    path: '/portfolio',
-    component: path.resolve('src/templates/portfolio.js'),
-    context: {},
-  });
+//   // creating main portfolio page
+//   createPage({
+//     path: '/portfolio',
+//     component: path.resolve('src/templates/portfolio.js'),
+//     context: {},
+//   });
 
-  // creating each portfolio page
-  portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.fullPath,
-      component: path.resolve(`src/templates/item.js`),
-      context: {},
-    });
-  });
+//   // creating each portfolio page
+//   portfolioQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//     createPage({
+//       path: node.fields.fullPath,
+//       component: path.resolve(`src/templates/item.js`),
+//       context: {},
+//     });
+//   });
 
-  // #########
-  // PAGES
-  // #########
-  const getHome = () => {
-    return graphql(`
-      {
-        allMarkdownRemark(
-          filter: { fields: { type: { eq: "pages" } } }
-          sort: { order: DESC, fields: frontmatter___date }
-        ) {
-          edges {
-            node {
-              fields {
-                type
-                slug
-                fullPath
-              }
-            }
-          }
-        }
-      }
-    `);
-  };
+//   // #########
+//   // PAGES
+//   // #########
+//   const getHome = () => {
+//     return graphql(`
+//       {
+//         allMarkdownRemark(
+//           filter: { fields: { type: { eq: "pages" } } }
+//           sort: { order: DESC, fields: frontmatter___date }
+//         ) {
+//           edges {
+//             node {
+//               fields {
+//                 type
+//                 slug
+//                 fullPath
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `);
+//   };
 
-  const homeQl = await getHome();
+//   const homeQl = await getHome();
 
-  if (homeQl.errors) throw new Error(homeQl.errors);
+//   if (homeQl.errors) throw new Error(homeQl.errors);
 
-  // creating main home page
-  createPage({
-    path: '/',
-    component: path.resolve('src/templates/home.js'),
-    context: {},
-  });
+//   // creating main home page
+//   createPage({
+//     path: '/',
+//     component: path.resolve('src/templates/home.js'),
+//     context: {},
+//   });
 
-  // creating each sub pages
-  homeQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.fullPath,
-      component: path.resolve(`src/templates/item.js`),
-      context: {},
-    });
-  });
-};
+//   // creating each sub pages
+//   homeQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//     createPage({
+//       path: node.fields.fullPath,
+//       component: path.resolve(`src/templates/item.js`),
+//       context: {},
+//     });
+//   });
+// };
