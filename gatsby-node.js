@@ -72,6 +72,7 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
+              html
               frontmatter {
                 thumb
               }
@@ -119,6 +120,7 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
+              html
               frontmatter {
                 title
                 thumb
@@ -167,6 +169,7 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
+              html
               frontmatter {
                 type
               }
@@ -205,6 +208,7 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
+              html
               fields {
                 type
                 slug
@@ -218,6 +222,8 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   const pagesQl = await getPages()
+
+  console.log('string data', JSON.stringify(pagesQl))
 
   if (pagesQl.errors) throw new Error(pagesQl.errors)
 
