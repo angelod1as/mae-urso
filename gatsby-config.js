@@ -1,20 +1,71 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Mãe Urso Culinária`,
+    description: `Homepage for Mãe Urso cooking and events`,
+    author: `@angelod1as`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: path.join(__dirname, `src`),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: path.join(__dirname, `content`),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-unwrap-images',
+          'gatsby-remark-picture',
+          `gatsby-remark-lazy-load`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 2000,
+            },
+          },
+          {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+              fonts: [
+                `Montserrat Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i`,
+                `Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i`,
+              ],
+              display: 'swap',
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: path.join(__dirname, `src`, `svg`),
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
