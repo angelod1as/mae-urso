@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 import GlobalStyle from './GlobalStyle'
-import SEO from './Seo'
+import Seo from './Seo'
 
 import Header from './Header'
 
@@ -29,7 +29,7 @@ const Container = ({ title, children }) => {
     <ThemeProvider theme={theme}>
       <Fragment>
         <GlobalStyle />
-        <SEO title={title} />
+        <Seo title={title} />
         <Header />
         <Site>{children}</Site>
       </Fragment>

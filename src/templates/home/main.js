@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 import uuid from 'uuid/v1'
 
-import SEO from '../../components/Seo'
+import Seo from '../../components/Seo'
 
 const Main = ({ data }) => {
   const { edges } = data.allMarkdownRemark
@@ -24,7 +24,7 @@ const Main = ({ data }) => {
 
   return (
     <Fragment>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <h1>main</h1>
       {edges.map(each => {
         const { html } = each.node
