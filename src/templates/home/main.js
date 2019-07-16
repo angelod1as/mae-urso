@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import parse from 'html-react-parser'
 import uuid from 'uuid/v1'
+import parse from 'html-react-parser'
 
-import Seo from '../../components/Seo'
+import Container from '../../components/Container'
 
-const Main = ({ data }) => {
+const Main = props => {
+  const { data, location } = props
+  const { pathname } = location
   const { edges } = data.allMarkdownRemark
 
   const compare = (a, b) => {
@@ -23,14 +25,13 @@ const Main = ({ data }) => {
   edges.sort(compare)
 
   return (
-    <Fragment>
-      <Seo title="Home" />
+    <Container title="Home" here={pathname}>
       <h1>main</h1>
       {edges.map(each => {
         const { html } = each.node
         return <div key={uuid()}>{parse(html)}</div>
       })}
-    </Fragment>
+    </Container>
   )
 }
 
@@ -45,6 +46,9 @@ Main.propTypes = {
         })
       ),
     }),
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
   }).isRequired,
 }
 

@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
-import GlobalStyle from './GlobalStyle'
-import Seo from './Seo'
-
-import Header from './Header'
 
 import size from './breakpoints'
+import GlobalStyle from './GlobalStyle'
+import Seo from './Seo'
+import Header from './Header/Header'
 
 const theme = {
   color: {
@@ -24,13 +23,14 @@ const theme = {
 
 const Site = styled.div``
 
-const Container = ({ title, children }) => {
+const Container = props => {
+  const { title, children, here } = props
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
         <GlobalStyle />
         <Seo title={title} />
-        <Header />
+        <Header here={here} />
         <Site>{children}</Site>
       </Fragment>
     </ThemeProvider>
@@ -40,6 +40,7 @@ const Container = ({ title, children }) => {
 Container.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
+  here: PropTypes.string.isRequired,
 }
 
 export default Container

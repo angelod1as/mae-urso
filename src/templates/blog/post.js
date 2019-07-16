@@ -5,10 +5,12 @@ import parse from 'html-react-parser'
 
 import Container from '../../components/Container'
 
-const Post = ({ data }) => {
+const Post = props => {
+  const { data, location } = props
+  const { pathname } = location
   const { frontmatter, html } = data.markdownRemark
   return (
-    <Container title={frontmatter.title}>
+    <Container title={frontmatter.title} here={pathname}>
       <h1>{frontmatter.title}</h1>
       <div>{parse(html)}</div>
     </Container>
@@ -35,6 +37,9 @@ Post.propTypes = {
       }),
       html: PropTypes.string,
     }),
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
   }).isRequired,
 }
 

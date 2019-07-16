@@ -115,7 +115,7 @@ exports.createPages = async ({ actions, graphql }) => {
     graphql(`
       query {
         allMarkdownRemark(
-          filter: { fields: { type: { eq: "menu" } } }
+          filter: { fields: { type: { eq: "menus" } } }
           sort: { order: DESC, fields: frontmatter___date }
         ) {
           edges {
@@ -136,22 +136,22 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     `)
 
-  const menuQl = await getMenu()
+  const menusQl = await getMenu()
 
-  if (menuQl.errors) throw new Error(menuQl.errors)
+  if (menusQl.errors) throw new Error(menusQl.errors)
 
   // creating main menu page
   createPage({
-    path: '/menu',
-    component: path.resolve('src/templates/menu/menus.js'),
+    path: '/menus',
+    component: path.resolve('src/templates/menus/menus.js'),
     context: {},
   })
 
   // creating each menu
-  menuQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  menusQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.fullPath,
-      component: path.resolve(`src/templates/menu/menu.js`),
+      component: path.resolve(`src/templates/menus/menu.js`),
       context: {},
     })
   })
