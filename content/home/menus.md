@@ -1,5 +1,5 @@
 ---
-type: ''
+type: 'menus'
 order: 3
 ---
 

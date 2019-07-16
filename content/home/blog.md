@@ -1,5 +1,5 @@
 ---
-type: ''
+type: 'blog'
 order: 4
 ---
 

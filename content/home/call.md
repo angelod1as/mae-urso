@@ -1,5 +1,5 @@
 ---
-type: ''
+type: 'button'
 order: 2
 ---
 

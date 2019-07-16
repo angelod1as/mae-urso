@@ -1,5 +1,5 @@
 ---
-type: ''
+type: 'features'
 order: 1
 ---
 

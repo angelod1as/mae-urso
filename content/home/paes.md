@@ -1,5 +1,5 @@
 ---
-type: ''
+type: 'paes'
 order: 5
 ---
 

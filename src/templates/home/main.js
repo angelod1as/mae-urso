@@ -27,7 +27,7 @@ const Main = ({ data }) => {
       <SEO title="Home" />
       <h1>main</h1>
       {edges.map(each => {
-        const { html, frontmatter } = each.node
+        const { html } = each.node
         return <div key={uuid()}>{parse(html)}</div>
       })}
     </Fragment>

@@ -223,8 +223,6 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const pagesQl = await getPages()
 
-  console.log('string data', JSON.stringify(pagesQl))
-
   if (pagesQl.errors) throw new Error(pagesQl.errors)
 
   // creating main home page

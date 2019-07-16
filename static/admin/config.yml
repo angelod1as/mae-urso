@@ -1,9 +1,11 @@
 backend:
   name: github
-  repo: angelod1as/portfolio
+  repo: angelod1as/mae-urso
 
 media_folder: static/assets
 public_folder: assets
+
+publish_mode: editorial_workflow
 
 slug:
   encoding: "ascii"
@@ -11,12 +13,13 @@ slug:
   sanitize_replacement: "_"
 
 collections:
-  - name: portfolio
-    label: portfolio
-    folder: content/portfolio
+  - name: blog
+    label: blog
+    folder: content/blog
     create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
-      - { name: date, label: Data, widget: date }
+      - { name: date, label: Data de publicação, widget: date }
       - { name: title, label: Título, widget: string }
       - name: descGroup
         label: Descrições
@@ -30,29 +33,52 @@ collections:
       - name: others
         label: Outras
         widget: object
-  - name: pages
-    label: pages
-    folder: content
-    create: true
-    fields:
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - name: descGroup
-        label: Descrições
-        widget: object
         fields:
-          - { name: desc, label: Descrição curta, widget: string }
-          - { name: longdesc, label: Descrição sidebar, widget: text }
-      - { name: body, label: Texto, widget: markdown }
-      - { name: menu, label: Add to menu, widget: boolean, default: true, required: false }
-      - { name: category, label: Category, widget: string, required: false }
-      - { name: order, label: Ordem, widget: number, required: false }
-  - name: menu
-    label: menu
-    folder: content/menu
-    create: true
-    fields:
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Texto, widget: markdown }
-      - { name: order, label: Ordem, widget: number, required: false }
+          - { name: menu, label: Esconder da home, widget: boolean, default: false, required: false }
+
+
+  # - name: portfolio
+  #   label: portfolio
+  #   folder: content/portfolio
+  #   create: true
+  #   fields:
+  #     - { name: date, label: Data, widget: date }
+  #     - { name: title, label: Título, widget: string }
+  #     - name: descGroup
+  #       label: Descrições
+  #       widget: object
+  #       fields:
+  #         - { name: desc, label: Descrição curta, widget: string }
+  #         - { name: longdesc, label: Descrição sidebar, widget: text }
+  #     - { name: tags, label: Tags, widget: list }
+  #     - { name: thumb, label: Imagem do menu, widget: image }
+  #     - { name: body, label: Texto, widget: markdown }
+  #     - name: others
+  #       label: Outras
+  #       widget: object
+  # - name: pages
+  #   label: pages
+  #   folder: content
+  #   create: true
+  #   fields:
+  #     - { name: date, label: Date, widget: date }
+  #     - { name: title, label: Title }
+  #     - name: descGroup
+  #       label: Descrições
+  #       widget: object
+  #       fields:
+  #         - { name: desc, label: Descrição curta, widget: string }
+  #         - { name: longdesc, label: Descrição sidebar, widget: text }
+  #     - { name: body, label: Texto, widget: markdown }
+  #     - { name: menu, label: Add to menu, widget: boolean, default: true, required: false }
+  #     - { name: category, label: Category, widget: string, required: false }
+  #     - { name: order, label: Ordem, widget: number, required: false }
+  # - name: menu
+  #   label: menu
+  #   folder: content/menu
+  #   create: true
+  #   fields:
+  #     - { name: date, label: Date, widget: date }
+  #     - { name: title, label: Title }
+  #     - { name: body, label: Texto, widget: markdown }
+  #     - { name: order, label: Ordem, widget: number, required: false }
