@@ -1,6 +1,6 @@
 ---
-type: 'menus'
+type: 'cardapios'
 order: 3
 ---
 
-# Menus
+# cardapios

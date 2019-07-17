@@ -5,13 +5,13 @@ import uuid from 'uuid/v1'
 
 import Container from '../../components/Container'
 
-const Menus = props => {
+const cardapios = props => {
   const { data, location } = props
   const { pathname } = location
   const { edges } = data.allMarkdownRemark
   return (
-    <Container title="Menus" here={pathname}>
-      <h1>Menus</h1>
+    <Container title="cardapios" here={pathname}>
+      <h1>cardapios</h1>
       {edges.map(each => {
         const { frontmatter, fields } = each.node
         return (
@@ -24,7 +24,7 @@ const Menus = props => {
   )
 }
 
-Menus.propTypes = {
+cardapios.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -48,7 +48,7 @@ Menus.propTypes = {
 
 export const homeQuery = graphql`
   {
-    allMarkdownRemark(filter: { fields: { type: { eq: "menus" } } }) {
+    allMarkdownRemark(filter: { fields: { type: { eq: "cardapios" } } }) {
       edges {
         node {
           html
@@ -64,4 +64,4 @@ export const homeQuery = graphql`
   }
 `
 
-export default Menus
+export default cardapios

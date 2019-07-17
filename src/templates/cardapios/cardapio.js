@@ -5,7 +5,7 @@ import parse from 'html-react-parser'
 
 import Container from '../../components/Container'
 
-const Menu = props => {
+const cardapio = props => {
   const { data, location } = props
   const { pathname } = location
   const { frontmatter, html } = data.markdownRemark
@@ -29,7 +29,7 @@ export const pageQuery = graphql`
   }
 `
 
-Menu.propTypes = {
+cardapio.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.shape({
@@ -43,4 +43,4 @@ Menu.propTypes = {
   }).isRequired,
 }
 
-export default Menu
+export default cardapio

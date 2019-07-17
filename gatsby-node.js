@@ -108,14 +108,14 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   // ########
-  // MENUS
+  // cardapios
   // ########
 
-  const getMenu = () =>
+  const getcardapio = () =>
     graphql(`
       query {
         allMarkdownRemark(
-          filter: { fields: { type: { eq: "menus" } } }
+          filter: { fields: { type: { eq: "cardapios" } } }
           sort: { order: DESC, fields: frontmatter___date }
         ) {
           edges {
@@ -136,22 +136,22 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     `)
 
-  const menusQl = await getMenu()
+  const cardapiosQl = await getcardapio()
 
-  if (menusQl.errors) throw new Error(menusQl.errors)
+  if (cardapiosQl.errors) throw new Error(cardapiosQl.errors)
 
-  // creating main menu page
+  // creating main cardapio page
   createPage({
-    path: '/menus',
-    component: path.resolve('src/templates/menus/menus.js'),
+    path: '/cardapios',
+    component: path.resolve('src/templates/cardapios/cardapios.js'),
     context: {},
   })
 
-  // creating each menu
-  menusQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  // creating each cardapio
+  cardapiosQl.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.fullPath,
-      component: path.resolve(`src/templates/menus/menu.js`),
+      component: path.resolve(`src/templates/cardapios/cardapio.js`),
       context: {},
     })
   })

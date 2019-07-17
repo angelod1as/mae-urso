@@ -7,7 +7,7 @@ import uuid from 'uuid/v1'
 const list = [
   ['Home', '/'],
   ['Blog', '/blog'],
-  ['Menus', '/menus'],
+  ['cardapios', '/cardapios'],
   ['Pães', '/paes'],
   ['Contato', '/contato'],
   ['Sobre', '/sobre'],

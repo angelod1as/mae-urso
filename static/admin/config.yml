@@ -28,13 +28,13 @@ collections:
           - { name: desc, label: Descrição curta, widget: string }
           - { name: longdesc, label: Descrição sidebar, widget: text }
       - { name: tags, label: Tags, widget: list }
-      - { name: thumb, label: Imagem do menu, widget: image }
+      - { name: thumb, label: Imagem do cardapio, widget: image }
       - { name: body, label: Texto, widget: markdown }
       - name: others
         label: Outras
         widget: object
         fields:
-          - { name: menu, label: Esconder da home, widget: boolean, default: false, required: false }
+          - { name: cardapio, label: Esconder da home, widget: boolean, default: false, required: false }
 
 
   # - name: portfolio
@@ -51,7 +51,7 @@ collections:
   #         - { name: desc, label: Descrição curta, widget: string }
   #         - { name: longdesc, label: Descrição sidebar, widget: text }
   #     - { name: tags, label: Tags, widget: list }
-  #     - { name: thumb, label: Imagem do menu, widget: image }
+  #     - { name: thumb, label: Imagem do cardapio, widget: image }
   #     - { name: body, label: Texto, widget: markdown }
   #     - name: others
   #       label: Outras
@@ -70,12 +70,12 @@ collections:
   #         - { name: desc, label: Descrição curta, widget: string }
   #         - { name: longdesc, label: Descrição sidebar, widget: text }
   #     - { name: body, label: Texto, widget: markdown }
-  #     - { name: menu, label: Add to menu, widget: boolean, default: true, required: false }
+  #     - { name: cardapio, label: Add to cardapio, widget: boolean, default: true, required: false }
   #     - { name: category, label: Category, widget: string, required: false }
   #     - { name: order, label: Ordem, widget: number, required: false }
-  # - name: menu
-  #   label: menu
-  #   folder: content/menu
+  # - name: cardapio
+  #   label: cardapio
+  #   folder: content/cardapio
   #   create: true
   #   fields:
   #     - { name: date, label: Date, widget: date }

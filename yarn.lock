@@ -9254,7 +9254,7 @@ netlify-cms-ui-default@^2.6.3:
   resolved "https://registry.yarnpkg.com/netlify-cms-ui-default/-/netlify-cms-ui-default-2.6.3.tgz#bb09a6e093ccb2883f19e06549cd9377afa6acec"
   integrity sha512-OW3/RBpFmnX6R4qQVnGtJ3MnfTMQ243fb9/UCU3SUq3bkONvm/tj4c1AEANDQpcwDotOrtey+4ahBE7mlj6otQ==
   dependencies:
-    react-aria-menubutton "^6.0.0"
+    react-aria-cardapiobutton "^6.0.0"
     react-toggled "^1.1.2"
     react-transition-group "^2.6.0"
 
@@ -10687,7 +10687,7 @@ postcss-normalize-timing-functions@^4.0.2:
 postcss-normalize-unicode@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/postcss-normalize-unicode/-/postcss-normalize-unicode-4.0.1.tgz#841bd48fdcf3019ad4baa7493a3d363b52ae1cfb"
-  integrity sha512-od18Uq2wCYn+vZ/qCOeutvHjB5jm57ToxRaMeNuf0nWVHaP9Hua56QyMF6fs/4FSUnVIw0CBPsU0K4LnBPwYwg==
+  integrity sha512-od18Uq2wCYn+vZ/qCOeutvHjB5jm57ToxRacardapiof0nWVHaP9Hua56QyMF6fs/4FSUnVIw0CBPsU0K4LnBPwYwg==
   dependencies:
     browserslist "^4.0.0"
     postcss "^7.0.0"
@@ -11167,9 +11167,9 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-aria-menubutton@^6.0.0:
+react-aria-cardapiobutton@^6.0.0:
   version "6.1.0"
-  resolved "https://registry.yarnpkg.com/react-aria-menubutton/-/react-aria-menubutton-6.1.0.tgz#6f7fc81a3b16acb9c0678b8ceddde41e483cdeda"
+  resolved "https://registry.yarnpkg.com/react-aria-cardapiobutton/-/react-aria-cardapiobutton-6.1.0.tgz#6f7fc81a3b16acb9c0678b8ceddde41e483cdeda"
   integrity sha512-H5uE3ARR444pzeeEqW8wpK/paHfpYxmbm0d69Uhzb2OGNuzIlB+u7DJwzYCd8Z+cWmLGHWvprpxcXp5m8sdGug==
   dependencies:
     focus-group "^0.3.1"
