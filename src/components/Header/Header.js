@@ -7,9 +7,10 @@ import Nav from './Nav'
 const H = styled.div``
 
 const Header = ({ here }) => {
+  const Top = styled.div``
   return (
     <H>
-      <div>Mãe Urso</div>
+      <Top>Mãe Urso</Top>
       <Nav here={here} />
     </H>
   )

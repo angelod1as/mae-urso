@@ -16,8 +16,8 @@ const theme = {
     darkgray: '#A9A9A9',
   },
   font: {
-    display: 'Montserrat Alternates',
-    text: 'Montserrat',
+    display: 'Amaranth',
+    text: 'Lora',
   },
 }
 
