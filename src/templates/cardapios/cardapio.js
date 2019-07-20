@@ -56,12 +56,15 @@ const Cardapio = props => {
   const Title = styled.h1``
   const Lead = styled.p``
   const Html = styled.div``
+  const Thumb = styled.figure`
+    margin-top: 0;
+  `
 
   return (
     <Container title={frontmatter.title} here={pathname}>
-      <figure>
+      <Thumb>
         <img src={frontmatter.thumb} alt="" />
-      </figure>
+      </Thumb>
       <Title>{frontmatter.title}</Title>
       <Lead>{longdesc || desc}</Lead>
       <Divider>Detalhes</Divider>

@@ -24,6 +24,7 @@ const theme = {
 }
 
 const Site = styled.div`
+  padding-top: 50px;
   padding-bottom: 50px;
 `
 

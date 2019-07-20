@@ -4,7 +4,7 @@ title: Jornada Global
 descGroup:
   desc: Finger foods que reúnem sabores de vários locais do mundo para entreterem seus convidados
   longdesc:
-thumb: https://meubistro.com/beta/wp-content/uploads/2017/07/9879a614b75e706d8f08a6e45fb265eb_newimage.png
+thumb: https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
 include:
   - Louças e Talheres
   - Compra dos ingredientes
