@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
 import { Link } from 'gatsby'
 import uuid from 'uuid/v1'
 
@@ -60,13 +59,15 @@ const Button = styled.button`
   width: 60px;
   height: 60px;
   margin-left: -30px;
+  margin-bottom: 10px;
   border-radius: 50%;
-  border-color: transparent;
+  border-color: ${p => p.theme.color.white};
   background-color: ${p => p.theme.color.color};
   z-index: 20;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
   &:hover {
     background-color: ${p => p.theme.color.darker};
   }
