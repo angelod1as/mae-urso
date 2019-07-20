@@ -26,7 +26,10 @@ const theme = {
 
 const Site = styled.div`
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
+  & > h1 {
+    margin-top: 60px;
+  }
 `
 
 const Container = props => {
