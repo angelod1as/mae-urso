@@ -1,5 +1,5 @@
 ---
-type: 'features'
+title: Features
 order: 1
 ---
 

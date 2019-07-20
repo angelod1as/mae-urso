@@ -1,5 +1,5 @@
 ---
-type: 'paes'
+title: Pães
 order: 5
 ---
 
