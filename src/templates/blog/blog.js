@@ -2,8 +2,42 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import uuid from 'uuid/v1'
+import styled from 'styled-components'
 
 import Container from '../../components/Container'
+
+const Wrapper = styled.div`
+  margin: 20px 0;
+  a {
+    text-decoration: none;
+    font-family: ${p => p.theme.font.text};
+    &:hover {
+      h2 {
+        transition: color 0.2s;
+        color: ${p => p.theme.color.darker};
+      }
+      p {
+        transition: color 0.2s;
+        color: ${p => p.theme.color.darker};
+      }
+    }
+  }
+`
+
+const Title = styled.h2`
+  margin: 0 0 10px 0;
+  line-height: 1em;
+`
+
+const DescDate = styled.p`
+  margin: 0;
+  color: ${p => p.theme.color.black};
+  font-size: 0.9em;
+  span {
+    color: ${p => p.theme.color.darkgray};
+    font-size: 0.8em;
+  }
+`
 
 const Blog = props => {
   const { data, location } = props
@@ -14,11 +48,17 @@ const Blog = props => {
       <h1>Blog</h1>
       {edges.map(post => {
         const { frontmatter, fields } = post.node
+        const { title, date, descGroup } = frontmatter
+        const { desc } = descGroup
         return (
-          <Link key={uuid()} to={fields.fullPath}>
-            <p>{frontmatter.title}</p>
-            <p>{frontmatter.date}</p>
-          </Link>
+          <Wrapper>
+            <Link key={uuid()} to={fields.fullPath}>
+              <Title>{title}</Title>
+              <DescDate>
+                <span>{date}</span> {desc}
+              </DescDate>
+            </Link>
+          </Wrapper>
         )
       })}
     </Container>
