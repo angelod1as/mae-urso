@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import normalize from 'styled-normalize'
 import reset from 'styled-reset'
-import size from './breakpoints'
+// import size from './breakpoints'
 
 const GlobalStyle = createGlobalStyle`
   /* reset and normalize */
@@ -33,6 +33,12 @@ const GlobalStyle = createGlobalStyle`
       padding-left: 5px;
       padding-right: 5px;
     }
+
+  p > a,
+  span > a {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   h1 {
     font-weight: 700;
@@ -100,9 +106,17 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  /* PROTECTIVE PADDING */
-  /* @media ${size.medium} {
+  /* LINKS */
 
-  } */
+  a {
+    color: ${p => p.theme.color.color};
+    font-family: ${p => p.theme.font.display};
+    font-size: 1.1em;
+    transition: color 0.2s;
+    &:hover {
+      color: ${p => p.theme.color.darkgray};
+    }
+  }
+
 `
 export default GlobalStyle

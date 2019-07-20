@@ -53,6 +53,7 @@ const List = styled.div`
   }
 `
 const Button = styled.button`
+  appearance: none;
   position: fixed;
   left: 50%;
   bottom: 0;
@@ -61,7 +62,7 @@ const Button = styled.button`
   margin-left: -30px;
   margin-bottom: 10px;
   border-radius: 50%;
-  border-color: ${p => p.theme.color.white};
+  border: 1px solid ${p => p.theme.color.white};
   background-color: ${p => p.theme.color.color};
   z-index: 20;
   display: flex;
