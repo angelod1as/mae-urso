@@ -1,6 +1,6 @@
 ---
-type: 'cardapios'
+title: Cardápios
 order: 3
 ---
 
-# cardapios
+# Cardápios
