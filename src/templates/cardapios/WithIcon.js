@@ -20,6 +20,9 @@ const Icon = styled.div`
     height: auto;
     margin-right: 10px;
     line-height: 0;
+    svg {
+      fill: ${p => p.theme.color.color};
+    }
   }
 `
 

@@ -9,7 +9,9 @@ import Header from './Header/Header'
 
 const theme = {
   color: {
-    color: '#19006A',
+    color: '#cc7000',
+    darker: '#995400',
+    lighter: '#ff981a',
     white: '#F4F4F4',
     black: '#333333',
     gray: '#CCCCCC',
@@ -21,7 +23,9 @@ const theme = {
   },
 }
 
-const Site = styled.div``
+const Site = styled.div`
+  padding-bottom: 50px;
+`
 
 const Container = props => {
   const { title, children, here } = props

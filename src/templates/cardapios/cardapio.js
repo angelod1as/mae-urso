@@ -7,44 +7,51 @@ import uuid from 'uuid/v1'
 
 import Container from '../../components/Container'
 import WithIcon from './WithIcon'
+import Call from '../../components/Call'
 
-const cardapio = props => {
+const Divider = ({ children }) => {
+  const Div = styled.div`
+    margin: 50px 0 20px 0;
+    font-weight: bold;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    &:before {
+      content: '';
+      border-top: 3px dotted ${p => p.theme.color.gray};
+      margin: 0 auto;
+      position: absolute;
+      top: 42%;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    h2 {
+      font-size: 1.2em;
+      display: block;
+      background-color: ${p => p.theme.color.white};
+      padding: 0 10px;
+      margin: 0;
+      z-index: 2;
+    }
+  `
+  return (
+    <Div>
+      <h2>{children}</h2>
+    </Div>
+  )
+}
+
+Divider.propTypes = {
+  children: PropTypes.string.isRequired,
+}
+
+const Cardapio = props => {
   const { data, location } = props
   const { pathname } = location
   const { frontmatter, html } = data.markdownRemark
   const { longdesc = null, desc } = frontmatter.descGroup
-
-  const Divider = ({ children }) => {
-    const Div = styled.div`
-      margin: 50px 0 20px 0;
-      font-weight: bold;
-      display: inline-flex;
-      width: 100%;
-      justify-content: center;
-      position: relative;
-      &:before {
-        content: '';
-        border-top: 1px solid black;
-        margin: 0 auto;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        z-index: -1;
-      }
-      h3 {
-        font-size: 1.2em;
-        display: block;
-        background-color: white;
-        padding: 0 10px;
-      }
-    `
-    return (
-      <Div>
-        <h3>{children}</h3>
-      </Div>
-    )
-  }
 
   const Title = styled.h1``
   const Lead = styled.p``
@@ -69,6 +76,7 @@ const cardapio = props => {
       ) : (
         ''
       )}
+      <Call>Contratar</Call>
     </Container>
   )
 }
@@ -92,7 +100,7 @@ export const pageQuery = graphql`
   }
 `
 
-cardapio.propTypes = {
+Cardapio.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.shape({
@@ -112,7 +120,7 @@ cardapio.propTypes = {
   }).isRequired,
 }
 
-cardapio.defaultProps = {
+Cardapio.defaultProps = {
   data: {
     markdownRemark: {
       frontmatter: {
@@ -124,4 +132,4 @@ cardapio.defaultProps = {
   },
 }
 
-export default cardapio
+export default Cardapio
