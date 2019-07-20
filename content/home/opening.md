@@ -1,6 +1,6 @@
 ---
-type: 'opening'
+title: Opening
 order: 0
 ---
 
-# Openings
+# Opening
