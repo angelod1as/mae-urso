@@ -72,13 +72,8 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
-              html
-              frontmatter {
-                thumb
-              }
               fields {
                 type
-                slug
                 fullPath
               }
             }
@@ -120,11 +115,6 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
-              html
-              frontmatter {
-                title
-                thumb
-              }
               fields {
                 type
                 slug
@@ -169,10 +159,6 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
-              html
-              frontmatter {
-                type
-              }
               fields {
                 type
                 slug
@@ -208,7 +194,6 @@ exports.createPages = async ({ actions, graphql }) => {
         ) {
           edges {
             node {
-              html
               fields {
                 type
                 slug

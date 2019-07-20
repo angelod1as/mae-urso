@@ -6,6 +6,14 @@ import parse from 'html-react-parser'
 
 import Container from '../../components/Container'
 
+const Opening = () => <div>OPENING</div>
+// blog e cardápios
+const Roll = () => <div>ROLL</div>
+// features gerais
+const Features = () => <div>Features</div>
+// contatem agora e clube do pão
+const Call = () => <div>Call</div>
+
 const Main = props => {
   const { data, location } = props
   const { pathname } = location
@@ -27,8 +35,24 @@ const Main = props => {
   return (
     <Container title="Home" here={pathname}>
       {edges.map(each => {
-        const { html } = each.node
-        return <div key={uuid()}>{parse(html)}</div>
+        const { html, frontmatter, fields } = each.node
+        const { background } = frontmatter
+        const { slug } = fields
+        console.log(slug)
+        switch (slug) {
+          case 'opening':
+            return <Opening key={uuid()} {...frontmatter} />
+          case 'blog':
+          case 'cardapios':
+            return <Roll key={uuid()} {...frontmatter} />
+          case 'call':
+          case 'paes':
+            return <Call key={uuid()} {...frontmatter} />
+          case 'features':
+            return <Features key={uuid()} {...frontmatter} />
+          default:
+            return null
+        }
       })}
     </Container>
   )
@@ -64,7 +88,7 @@ export const homeQuery = graphql`
           }
           frontmatter {
             order
-            type
+            background
           }
         }
       }
