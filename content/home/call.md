@@ -1,5 +1,5 @@
 ---
-type: 'button'
+title: Call
 order: 2
 ---
 
