@@ -1,60 +1,123 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import uuid from 'uuid/v1'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import { Link } from 'gatsby'
+import uuid from 'uuid/v1'
 
 // prettier-ignore
 const list = [
   ['Home', '/'],
   ['Blog', '/blog'],
-  ['cardapios', '/cardapios'],
+  ['Cardápios', '/cardapios'],
   ['Pães', '/paes'],
   ['Contato', '/contato'],
   ['Sobre', '/sobre'],
 ]
 
-const Hamburger = ({ open }) => {
-  if (!open) {
-    return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-        <path d="M0 7.5v5h50v-5zm0 15v5h50v-5zm0 15v5h50v-5z" />
-      </svg>
-    )
-  }
-  return 'CLOSED'
-}
+const Wrapper = styled.div`
+  z-index: 20;
+`
 
-const Navigation = styled.div`
+const List = styled.div`
+  display: flex;
+  transition: all 0.5s ease;
+  bottom: 0;
+  left: 0;
   position: fixed;
-  bottom: 5px;
+  width: 100%;
+  height: 0%;
+  z-index: 19;
+
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 100px 0;
+
+  a {
+    color: ${p => p.theme.color.white};
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  &.list-closed {
+    opacity: 0;
+    height: 0vh;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  &.list-open {
+    background-color: ${p => p.theme.color.color};
+    opacity: 100;
+    height: 100vh;
+  }
+`
+const Button = styled.button`
+  position: fixed;
   left: 50%;
+  bottom: 0;
   width: 60px;
   height: 60px;
   margin-left: -30px;
   border-radius: 50%;
+  border-color: transparent;
   background-color: ${p => p.theme.color.color};
+  z-index: 20;
   display: flex;
-  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: ${p => p.theme.color.darker};
+  }
   svg {
-    margin-top: 3px;
     width: 80%;
     height: auto;
     fill: ${p => p.theme.color.white};
   }
 `
 
-const NavList = styled.div`
-  background-color: ${p => p.theme.color.darkgray};
+const Ham = styled.div`
+  width: 80%;
+  position: relative;
   height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 99; */
+
+  div,
+  div:after,
+  div:before {
+    width: 100%;
+    height: 3px;
+    background-color: ${p => p.theme.color.white};
+  }
+
+  &.button-open {
+    div {
+      &:after,
+      &:before {
+        top: 0;
+      }
+    }
+  }
+
+  div {
+    margin: 0 auto;
+    &:before,
+    &:after {
+      transition: all 0.3s ease;
+
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      top: -10px;
+    }
+
+    &:after {
+      top: 10px;
+    }
+  }
 `
 
 class Nav extends Component {
@@ -75,24 +138,22 @@ class Nav extends Component {
     const { here } = this.props
     const { open } = this.state
     return (
-      <div>
-        <Fade bottom when={open}>
-          <NavList>
-            {list
-              .filter(each => each[1] !== here)
-              .map(each => (
-                <Link key={uuid()} to={each[1]}>
-                  {each[0]}
-                </Link>
-              ))}
-          </NavList>
-        </Fade>
-        <Navigation>
-          <button type="button" onClick={() => this.handleClick()}>
-            <Hamburger open={open} />
-          </button>
-        </Navigation>
-      </div>
+      <Wrapper>
+        <Button type="button" onClick={() => this.handleClick()}>
+          <Ham className={open ? 'button-open' : 'button-closed'}>
+            <div />
+          </Ham>
+        </Button>
+        <List className={open ? 'list-open' : 'list-closed'}>
+          {list
+            .filter(each => each[1] !== here)
+            .map(each => (
+              <Link key={uuid()} to={each[1]}>
+                {each[0]}
+              </Link>
+            ))}
+        </List>
+      </Wrapper>
     )
   }
 }

@@ -6,6 +6,7 @@ import size from './breakpoints'
 import GlobalStyle from './GlobalStyle'
 import Seo from './Seo'
 import Header from './Header/Header'
+import Nav from './Header/Nav'
 
 const theme = {
   color: {
@@ -37,6 +38,7 @@ const Container = props => {
         <Seo title={title} />
         <Header here={here} />
         <Site>{children}</Site>
+        <Nav here={here} />
       </Fragment>
     </ThemeProvider>
   )

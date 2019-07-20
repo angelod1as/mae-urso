@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   ${normalize}
 
+  * {
+    box-sizing: border-box !important;
+  }
+
   body, html {
     height: 100%;
     position: relative;
@@ -25,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${p => p.theme.color.color};
   }
 
-  p, h1, h2, h3, h4, h5 {
+  p, h1, h2, h3, h4, h5, a {
       padding-left: 5px;
       padding-right: 5px;
     }

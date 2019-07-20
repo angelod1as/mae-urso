@@ -1,40 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
-import Nav from './Nav'
-
-const H = styled.div`
+const Top = styled.div`
   width: 100%;
   height: 50px;
-  background-color: ${p => p.theme.color.color};
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const Top = styled.div`
+  background-color: ${p => p.theme.color.color};
   color: ${p => p.theme.color.white};
   font-family: ${p => p.theme.font.display};
   font-size: 1.3em;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid ${p => p.theme.color.white};
 `
 
-const Header = ({ here }) => {
-  return (
-    <H>
-      <Top>Mãe Urso</Top>
-      <Nav here={here} />
-    </H>
-  )
-}
-
-Header.propTypes = {
-  here: PropTypes.string.isRequired,
-}
+const Header = () => <Top>Mãe Urso</Top>
 
 export default Header
