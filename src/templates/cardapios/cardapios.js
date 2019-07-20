@@ -53,8 +53,8 @@ const Cardapios = props => {
         const { title, thumb, descGroup } = frontmatter
         const { longdesc, desc } = descGroup
         return (
-          <Tile>
-            <Link key={uuid()} to={fields.fullPath}>
+          <Tile key={uuid()}>
+            <Link to={fields.fullPath}>
               <figure>
                 <img src={thumb} alt="" />
               </figure>

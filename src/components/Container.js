@@ -30,6 +30,19 @@ const Site = styled.div`
   & > h1 {
     margin-top: 60px;
   }
+
+  &.full {
+    @media ${size.medium} {
+      margin: 0 auto;
+    }
+  }
+
+  &.column {
+    @media ${size.medium} {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
 `
 
 const Container = props => {
@@ -40,7 +53,7 @@ const Container = props => {
         <GlobalStyle />
         <Seo title={title} />
         <Header here={here} />
-        <Site>{children}</Site>
+        <Site className={here === '/' ? 'full' : 'column'}>{children}</Site>
         <Nav here={here} />
       </Fragment>
     </ThemeProvider>

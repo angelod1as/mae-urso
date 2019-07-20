@@ -26,7 +26,6 @@ const Main = props => {
 
   return (
     <Container title="Home" here={pathname}>
-      <h1>main</h1>
       {edges.map(each => {
         const { html } = each.node
         return <div key={uuid()}>{parse(html)}</div>

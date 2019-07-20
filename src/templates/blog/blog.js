@@ -51,8 +51,8 @@ const Blog = props => {
         const { title, date, descGroup } = frontmatter
         const { desc } = descGroup
         return (
-          <Wrapper>
-            <Link key={uuid()} to={fields.fullPath}>
+          <Wrapper key={uuid()}>
+            <Link to={fields.fullPath}>
               <Title>{title}</Title>
               <DescDate>
                 <span>{date}</span> {desc}
