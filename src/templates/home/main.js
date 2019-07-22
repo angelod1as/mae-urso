@@ -5,14 +5,14 @@ import uuid from 'uuid/v1'
 import parse from 'html-react-parser'
 
 import Container from '../../components/Container'
+import Opening from './Opening'
 
-const Opening = () => <div>OPENING</div>
 // blog e cardápios
-const Roll = () => <div>ROLL</div>
+const Roll = ({ html }) => parse(html)
 // features gerais
-const Features = () => <div>Features</div>
+const Features = ({ html }) => parse(html)
 // contatem agora e clube do pão
-const Call = () => <div>Call</div>
+const Call = ({ html }) => parse(html)
 
 const Main = props => {
   const { data, location } = props
@@ -36,20 +36,18 @@ const Main = props => {
     <Container title="Home" here={pathname}>
       {edges.map(each => {
         const { html, frontmatter, fields } = each.node
-        const { background } = frontmatter
         const { slug } = fields
-        console.log(slug)
         switch (slug) {
           case 'opening':
-            return <Opening key={uuid()} {...frontmatter} />
+            return <Opening key={uuid()} {...frontmatter} html={html} />
           case 'blog':
           case 'cardapios':
-            return <Roll key={uuid()} {...frontmatter} />
+            return <Roll key={uuid()} {...frontmatter} html={html} />
           case 'call':
           case 'paes':
-            return <Call key={uuid()} {...frontmatter} />
+            return <Call key={uuid()} {...frontmatter} html={html} />
           case 'features':
-            return <Features key={uuid()} {...frontmatter} />
+            return <Features key={uuid()} {...frontmatter} html={html} />
           default:
             return null
         }
