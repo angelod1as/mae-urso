@@ -7,6 +7,7 @@ import GlobalStyle from './GlobalStyle'
 import Seo from './Seo'
 import Header from './Header/Header'
 import Nav from './Header/Nav'
+import Footer from './Footer'
 
 const theme = {
   color: {
@@ -26,7 +27,8 @@ const theme = {
 
 const Site = styled.div`
   padding-top: 50px;
-  padding-bottom: 100px;
+  width: 100%;
+  flex-grow: 1;
   & > h1 {
     margin-top: 60px;
   }
@@ -45,17 +47,24 @@ const Site = styled.div`
   }
 `
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
 const Container = props => {
   const { title, children, here } = props
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
+      <Wrapper>
         <GlobalStyle />
         <Seo title={title} />
         <Header here={here} />
         <Site className={here === '/' ? 'full' : 'column'}>{children}</Site>
+        <Footer />
         <Nav here={here} />
-      </Fragment>
+      </Wrapper>
     </ThemeProvider>
   )
 }

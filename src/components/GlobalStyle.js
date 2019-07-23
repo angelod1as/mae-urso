@@ -12,8 +12,33 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box !important;
   }
 
+  /*
+  * Purpose:
+  * Assign height: "100%" to
+  * html, body, #___gatsby &
+  * div with role="group"
+  */
+
+  /* See CONTAINER > SITE flex-grow: 1 */
+  /* https://dev.to/hzburki/100-height-to-all-divs-gatsby-33nd */
+
+  html, body, #___gatsby {
+      height: 100%;
+  }
+
+  body {
+      margin: 0px;
+  }
+
+  div[role="group"][tabindex] {
+      height: 100%;
+  }
+
+  /* CSS */
+
   body, html {
     height: 100%;
+    min-height: 100%;
     position: relative;
     font-family: ${p => p.theme.font.text}, serif;
     font-size: 18px;
