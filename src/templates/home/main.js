@@ -85,7 +85,9 @@ export const homeQuery = graphql`
           }
           frontmatter {
             order
-            background
+            background {
+              relativePath
+            }
           }
         }
       }

@@ -1,6 +1,6 @@
 ---
 title: Opening
-background: /assets/alho.jpg
+background: /assets/bg.jpg
 order: 0
 ---
 # Mãe Urso
