@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import parse from 'html-react-parser'
 import size from '../../components/breakpoints'
 
@@ -53,6 +54,10 @@ const Opening = ({ html, background }) => {
       <div>{parse(html)}</div>
     </Open>
   )
+}
+
+Opening.propTypes = {
+  html: PropTypes.string.isRequired,
 }
 
 export default Opening

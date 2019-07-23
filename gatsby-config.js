@@ -8,11 +8,22 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: path.join(__dirname, `static`, `assets`),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,25 +39,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: path.join(__dirname, `src`, `images`),
-      },
-    },
-    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-unwrap-images',
-          'gatsby-remark-picture',
-          `gatsby-remark-lazy-load`,
+          `gatsby-remark-relative-images`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 2000,
+              maxWidth: 1500,
             },
           },
+          'gatsby-remark-unwrap-images',
+          'gatsby-remark-picture',
+          `gatsby-remark-lazy-load`,
           {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
@@ -65,6 +70,9 @@ module.exports = {
         },
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

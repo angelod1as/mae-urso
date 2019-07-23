@@ -46,6 +46,12 @@ collections:
       - { name: background, label: Imagem de fundo, widget: image, required: false }
       - { name: body, label: Texto, widget: markdown, required: false }
       - { name: order, label: Ordem, widget: number }
+      # - name: Features
+      #   label: Features (só use no menu Features)
+      #   widget: object
+      #   fields:
+      #     - { name: icon, label: Ícone quadrado, widget: image, required: false }
+      #     - { name: feature, label: Descrição, widget: markdown, required: false }
 
   # - name: portfolio
   #   label: portfolio

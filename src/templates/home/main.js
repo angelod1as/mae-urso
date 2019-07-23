@@ -6,11 +6,10 @@ import parse from 'html-react-parser'
 
 import Container from '../../components/Container'
 import Opening from './Opening'
+import Features from './Features'
 
 // blog e cardápios
 const Roll = ({ html }) => parse(html)
-// features gerais
-const Features = ({ html }) => parse(html)
 // contatem agora e clube do pão
 const Call = ({ html }) => parse(html)
 
