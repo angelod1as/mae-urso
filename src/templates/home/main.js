@@ -7,11 +7,11 @@ import parse from 'html-react-parser'
 import Container from '../../components/Container'
 import Opening from './Opening'
 import Features from './Features'
+import Call from './Call'
 
 // blog e cardápios
 const Roll = ({ html }) => parse(html)
 // contatem agora e clube do pão
-const Call = ({ html }) => parse(html)
 
 const Main = props => {
   const { data, location } = props
