@@ -5,9 +5,9 @@ import parse from 'html-react-parser'
 import styled from 'styled-components'
 import uuid from 'uuid/v1'
 
-import Container from '../../components/Container'
-import WithIcon from './WithIcon'
-import Call from '../../components/Call'
+import Container from '../../components/container'
+import WithIcon from './with-icons'
+import CallBtn from '../../components/button'
 
 const Divider = ({ children }) => {
   const Div = styled.div`
@@ -79,7 +79,7 @@ const Cardapio = props => {
       ) : (
         ''
       )}
-      <Call>Contratar</Call>
+      <CallBtn>Contratar</CallBtn>
     </Container>
   )
 }

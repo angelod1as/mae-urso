@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby'
 import uuid from 'uuid/v1'
 import styled from 'styled-components'
 
-import Container from '../../components/Container'
+import Container from '../../components/container'
 
 const Wrapper = styled.div`
   margin: 20px 0;
@@ -87,7 +87,7 @@ Blog.propTypes = {
 }
 
 export const blogQuery = graphql`
-  query MyQuery {
+  query {
     allMarkdownRemark(filter: { fields: { type: { eq: "blog" } } }) {
       edges {
         node {

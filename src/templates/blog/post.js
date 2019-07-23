@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 
-import Container from '../../components/Container'
+import Container from '../../components/container'
 
 const Post = props => {
   const { data, location } = props

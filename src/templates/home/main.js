@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import uuid from 'uuid/v1'
 import parse from 'html-react-parser'
 
-import Container from '../../components/Container'
-import Opening from './Opening'
-import Features from './Features'
-import Call from './Call'
+import Container from '../../components/container'
+import Opening from './opening'
+import Features from './features'
+import Call from './call'
 
 // blog e cardápios
 const Roll = ({ html }) => parse(html)
