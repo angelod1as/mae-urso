@@ -25,7 +25,6 @@ const Roll = ({ data }) => {
         const { fullPath } = fields
         const { title, date } = frontmatter
         let { thumb } = frontmatter
-        console.log(thumb)
         if (thumb.includes('../../static/assets')) {
           thumb = thumb.replace('../../static', '')
         }

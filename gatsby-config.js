@@ -38,8 +38,8 @@ module.exports = {
         path: path.join(__dirname, `content`),
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
