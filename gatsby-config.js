@@ -38,19 +38,24 @@ module.exports = {
         path: path.join(__dirname, `content`),
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          'gatsby-remark-unwrap-images',
+          'gatsby-remark-picture',
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1500,
+              linkImagesToOriginal: false,
             },
           },
-          'gatsby-remark-unwrap-images',
-          'gatsby-remark-picture',
           `gatsby-remark-lazy-load`,
           {
             resolve: `gatsby-plugin-google-fonts`,
@@ -70,8 +75,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,

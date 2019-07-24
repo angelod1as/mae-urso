@@ -40,6 +40,7 @@ const DescDate = styled.p`
 `
 
 const Blog = props => {
+  console.log('Colocar thumb opcional')
   const { data, location } = props
   const { pathname } = location
   const { edges } = data.allMarkdownRemark

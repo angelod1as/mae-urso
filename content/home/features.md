@@ -2,7 +2,11 @@
 title: Features
 order: 1
 ---
-<div>
+<!-- Não remover as tags <div> -->
+<!-- Inserir na propriedade 'data-to' o link do Feature começando com barra -->
+<!-- ex: data-to: "/contato" -->
+
+<div data-to="/">
 
 # Feature 1
 
@@ -12,7 +16,7 @@ Texto do feature 1
 
 </div>
 
-<div>
+<div data-to="/">
 
 # Feature 2
 
@@ -22,7 +26,7 @@ Texto do feature 2
 
 </div>
 
-<div>
+<div data-to="/">
 
 # Feature 3
 

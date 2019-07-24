@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import parse from 'html-react-parser'
+import parse, { domToReact } from 'html-react-parser'
 import size from '../../components/breakpoints'
 
 const Open = styled.div`
@@ -24,8 +24,10 @@ const Open = styled.div`
     margin: 20px 0;
   }
 
-  div {
-    margin: 50px 0;
+  a {
+    margin: 30px 10px;
+    padding: 0;
+    width: 100%;
   }
 
   @media ${size.small} {
@@ -36,7 +38,16 @@ const Open = styled.div`
 
 // Abertura
 const Features = ({ html }) => {
-  return <Open>{parse(html)}</Open>
+  const options = {
+    replace: ({ attribs, children }) => {
+      if (attribs && attribs['data-to']) {
+        return <a href={attribs['data-to']}>{domToReact(children, {})}</a>
+      }
+      return null
+    },
+  }
+  const parsed = parse(html, options)
+  return <Open>{parsed}</Open>
 }
 
 Features.propTypes = {

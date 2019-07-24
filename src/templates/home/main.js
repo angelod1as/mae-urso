@@ -2,16 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import uuid from 'uuid/v1'
-import parse from 'html-react-parser'
 
 import Container from '../../components/container'
 import Opening from './opening'
 import Features from './features'
 import Call from './call'
-
-// blog e cardápios
-const Roll = ({ html }) => parse(html)
-// contatem agora e clube do pão
+import BlogRoll from './blogroll'
+import CardapioRoll from './cardapioroll'
 
 const Main = props => {
   const { data, location } = props
@@ -40,8 +37,9 @@ const Main = props => {
           case 'opening':
             return <Opening key={uuid()} {...frontmatter} html={html} />
           case 'blog':
+            return <BlogRoll key={uuid()} {...frontmatter} html={html} />
           case 'cardapios':
-            return <Roll key={uuid()} {...frontmatter} html={html} />
+            return <CardapioRoll key={uuid()} {...frontmatter} html={html} />
           case 'call':
           case 'paes':
             return <Call key={uuid()} {...frontmatter} html={html} />
