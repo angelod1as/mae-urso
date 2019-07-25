@@ -12,7 +12,7 @@ const fetchBg = background => {
     return (
       <StaticQuery
         query={graphql`
-          query BgQuery {
+          {
             allMarkdownRemark {
               edges {
                 node {
@@ -21,7 +21,7 @@ const fetchBg = background => {
                       relativePath
                       childImageSharp {
                         fluid(quality: 90, maxWidth: 4160) {
-                          ...GatsbyImageSharpFluid_withWebp
+                          ...GatsbyImageSharpFluid
                         }
                       }
                     }
