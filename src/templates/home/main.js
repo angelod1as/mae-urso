@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import uuid from 'uuid/v1'
 
 import Container from '../../components/container'
-import Opening from './opening'
+import Open from './open'
 import Features from './features'
 import Call from './call'
 import BlogRoll from './blogroll'

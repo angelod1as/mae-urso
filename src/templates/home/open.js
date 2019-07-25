@@ -67,10 +67,10 @@ const fetchBg = background => {
 }
 
 // Abertura
-const Opening = ({ html, background }) => {
+const Open = ({ html, background }) => {
   const BackgroundSection = fetchBg(background)
 
-  const Open = styled(BackgroundSection)`
+  const Wrapper = styled(BackgroundSection)`
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -107,17 +107,17 @@ const Opening = ({ html, background }) => {
   `
 
   return (
-    <Open>
+    <Wrapper>
       <div>{parse(html)}</div>
-    </Open>
+    </Wrapper>
   )
 }
 
-Opening.propTypes = {
+Open.propTypes = {
   html: PropTypes.string.isRequired,
   background: PropTypes.shape({
     childImageSharp: PropTypes.shape({}),
   }).isRequired,
 }
 
-export default Opening
+export default Open
