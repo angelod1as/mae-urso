@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from 'styled-components'
 
 import size from './breakpoints'
 import GlobalStyle from './global-style'
-import Seo from './seo'
+import Seo from './helmet'
 import Header from './header/header'
 import Nav from './header/nav'
 import Footer from './footer'
