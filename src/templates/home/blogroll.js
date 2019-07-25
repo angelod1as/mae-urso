@@ -1,10 +1,18 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
+import styled from 'styled-components'
+// import PropTypes from 'prop-types'
 // import uuid from 'uuid/v1'
-// import styled from 'styled-components'
 
 import Roll from './roll'
+
+const Wrapper = styled.div`
+  margin: 50px auto;
+  h2 {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+`
 
 const BlogRoll = () => {
   return (
@@ -12,7 +20,10 @@ const BlogRoll = () => {
       query={graphql`
         query BlogRoll {
           allMarkdownRemark(
-            filter: { fields: { type: { eq: "blog" } } }
+            filter: {
+              fields: { type: { eq: "blog" } }
+              frontmatter: { others: { hide: { ne: true } } }
+            }
             limit: 3
             sort: { order: DESC, fields: frontmatter___date }
           ) {
@@ -25,7 +36,16 @@ const BlogRoll = () => {
                 }
                 frontmatter {
                   title
-                  thumb
+                  thumbnail {
+                    childImageSharp {
+                      fluid(maxWidth: 800, maxHeight: 800) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                  others {
+                    hide
+                  }
                   date(formatString: "DD/MM/YYYY")
                 }
               }
@@ -33,7 +53,12 @@ const BlogRoll = () => {
           }
         }
       `}
-      render={data => <Roll data={data} />}
+      render={data => (
+        <Wrapper>
+          <h2>Últimos posts no blog</h2>
+          <Roll data={data} />
+        </Wrapper>
+      )}
     />
   )
 }

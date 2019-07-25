@@ -1,20 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import size from './breakpoints'
 
 const Wrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
-  align-items: center;
-  font-family: ${p => p.theme.font.display};
+  align-items: center; */
   padding: 15px 0;
   background-color: ${p => p.theme.color.black};
-  font-size: 0.9em;
+  font-size: 0.8em;
+  font-weight: 300;
   a {
-    color: ${p => p.theme.color.white};
+    color: ${p => p.theme.color.darkgray};
     text-decoration: none;
+    margin: 0;
+    padding-left: 0;
     &:hover {
-      color: ${p => p.theme.color.darkgray};
+      color: ${p => p.theme.color.white};
+    }
+  }
+  div {
+    width: 100px;
+    margin: 0 0 0 10px;
+  }
+  @media ${size.small} {
+    div {
+      width: 500px;
     }
   }
 `
@@ -22,12 +34,7 @@ const Wrapper = styled.div`
 const Footer = () => (
   <Wrapper>
     <div>
-      <a href="http://angelodias.com.br" target="_blank" rel="noopener noreferrer">
-        Desenvolvido por Angelo Dias
-      </a>
-    </div>
-    <div>
-      <Link to="/colophon">Créditos e Colophon</Link>
+      <Link to="/colophon">Development & Colophon</Link>
     </div>
   </Wrapper>
 )

@@ -30,7 +30,7 @@ Texto do feature 2
 
 # Feature 3
 
-![](/assets/food.jpg)
+![](/assets/table.jpg)
 
 Texto do feature 3
 

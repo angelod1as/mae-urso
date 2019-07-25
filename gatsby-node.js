@@ -77,8 +77,18 @@ exports.createPages = async ({ actions, graphql }) => {
           edges {
             node {
               fields {
+                slug
                 type
                 fullPath
+              }
+              frontmatter {
+                title
+                thumb
+                date
+                order
+                thumbnail {
+                  relativePath
+                }
               }
             }
           }

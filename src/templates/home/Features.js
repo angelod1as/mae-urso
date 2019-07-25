@@ -5,12 +5,11 @@ import parse, { domToReact } from 'html-react-parser'
 import size from '../../components/breakpoints'
 
 const Open = styled.div`
-  min-height: 100vh;
-  max-width: 1000px;
   margin: 0 auto;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   position: relative;
 
@@ -20,17 +19,23 @@ const Open = styled.div`
     margin: 0;
   }
 
-  p {
-    margin: 20px 0;
+  span {
+    transition: all 0.1s;
   }
 
   a {
-    margin: 30px 10px;
+    margin: 50px;
     padding: 0;
     width: 100%;
+    text-decoration: none;
+    &:hover {
+      picture span {
+        transform: scale(0.97);
+      }
+    }
   }
 
-  @media ${size.small} {
+  @media ${size.medium} {
     flex-direction: row;
     justify-content: space-around;
   }
