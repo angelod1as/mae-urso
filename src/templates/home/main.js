@@ -35,7 +35,7 @@ const Main = props => {
         const { slug } = fields
         switch (slug) {
           case 'opening':
-            return <Opening key={uuid()} {...frontmatter} html={html} />
+            return <Open key={uuid()} {...frontmatter} html={html} />
           case 'blog':
             return <BlogRoll key={uuid()} {...frontmatter} html={html} />
           case 'cardapios':
