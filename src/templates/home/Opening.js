@@ -12,7 +12,7 @@ const fetchBg = background => {
     return (
       <StaticQuery
         query={graphql`
-          {
+          query BgQuery {
             allMarkdownRemark {
               edges {
                 node {
