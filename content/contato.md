@@ -1,6 +1,6 @@
 ---
 title: Contato
-thumb: ''
+form: Contato
 ---
 
 Testando Contat!

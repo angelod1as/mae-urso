@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 
 import Container from '../../components/container'
+import Form from '../../components/forms/form'
 
 const Pages = props => {
   const { data, location } = props
@@ -12,10 +13,12 @@ const Pages = props => {
   // checa se página existe
   if (data.markdownRemark !== null) {
     const { frontmatter, html } = data.markdownRemark
+    const { title, form } = frontmatter
     return (
-      <Container title={frontmatter.title} here={pathname}>
-        <h1>{frontmatter.title}</h1>
+      <Container title={title} here={pathname}>
+        <h1>{title}</h1>
         <div>{parse(html)}</div>
+        {form ? <Form form={form} /> : ''}
       </Container>
     )
   }
@@ -32,7 +35,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        thumb
+        form
       }
     }
   }
@@ -43,6 +46,7 @@ Pages.propTypes = {
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
+        form: PropTypes.string,
       }),
       html: PropTypes.string,
     }),

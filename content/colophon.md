@@ -1,6 +1,5 @@
 ---
 title: Colophon
-thumb: ''
 ---
 
 foto tábua madeira - Photo by Todd Quackenbush on Unsplash

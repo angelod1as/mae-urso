@@ -1,6 +1,5 @@
 ---
 title: Sobre
-thumb: ''
 ---
 
 Testando!

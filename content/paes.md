@@ -1,6 +1,6 @@
 ---
 title: Pães
-thumb: ''
+form: Pães
 ---
 
 Aoooo
