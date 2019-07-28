@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import uuid from 'uuid/v1'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import Container from '../../components/container'
 
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h2`
-  margin: 0 0 10px 0;
+  margin: 20px 0 10px 0;
   line-height: 1em;
 `
 
@@ -40,7 +41,6 @@ const DescDate = styled.p`
 `
 
 const Blog = props => {
-  console.log('Colocar thumb opcional')
   const { data, location } = props
   const { pathname } = location
   const { edges } = data.allMarkdownRemark
@@ -49,11 +49,13 @@ const Blog = props => {
       <h1>Blog</h1>
       {edges.map(post => {
         const { frontmatter, fields } = post.node
-        const { title, date, descGroup } = frontmatter
+        const { title, date, descGroup, thumbnail } = frontmatter
+        const { fluid } = thumbnail ? thumbnail.childImageSharp : null
         const { desc } = descGroup
         return (
           <Wrapper key={uuid()}>
             <Link to={fields.fullPath}>
+              {thumbnail ? <Img fluid={fluid} /> : ''}
               <Title>{title}</Title>
               <DescDate>
                 <span>{date}</span> {desc}
@@ -97,8 +99,14 @@ export const blogQuery = graphql`
           }
           frontmatter {
             title
-            thumb
             date(formatString: "DD/MM/YYYY")
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 800, maxHeight: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             descGroup {
               desc
               longdesc

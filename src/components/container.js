@@ -27,6 +27,8 @@ const theme = {
 
 const Site = styled.div`
   padding-top: 50px;
+  padding-bottom: 100px;
+
   width: 100%;
   flex-grow: 1;
   & > h1 {
@@ -34,6 +36,7 @@ const Site = styled.div`
   }
 
   &.full {
+    padding-bottom: 0;
     @media ${size.medium} {
       margin: 0 auto;
     }
