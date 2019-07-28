@@ -49,6 +49,12 @@ class Form extends Component {
       return false
     }
     axios.post(config.script, {
+      withCredentials: true,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
       data: form,
     })
     return true
