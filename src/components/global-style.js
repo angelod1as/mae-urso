@@ -143,5 +143,70 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  /* FORMS */
+
+  form {
+    width: 100%;
+    padding: 0 5px;
+    margin-top: 50px;
+
+    fieldset {
+      margin: 20px 0;
+      padding: 0;
+    }
+
+    input, textarea, label {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    label {
+      font-weight: bold
+    }
+
+    input, textarea {
+      border: 1px solid ${p => p.theme.color.color};
+      border-radius: 5px;
+      background-color: ${p => p.theme.color.white};
+      padding: 10px;
+    }
+
+    button {
+      -webkit-appearance: none;
+      font-family: ${p => p.theme.font.display};
+      text-transform: uppercase;
+      margin: 40px 0px;
+      width: 100%;
+      display: block;
+      color: ${p => p.theme.color.white};
+      background-color: ${p => p.theme.color.color};
+      box-shadow: 0px 5px 0px 0px ${p => p.theme.color.darker};
+      padding: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.1s;
+
+      &:disabled,
+      &[disabled] {
+        pointer-events: none;
+        background-color: ${p => p.theme.color.darkgray};
+        box-shadow: 0px 5px 0px 0px ${p => p.theme.color.black};
+        &:hover {
+          background-color: ${p => p.theme.color.darkgray};
+          transform: none;
+          box-shadow: 0px 5px 0px 0px ${p => p.theme.color.black};
+        }
+      }
+
+      &:hover {
+        background-color: ${p => p.theme.color.lighter};
+        transform: translate(0, -5px);
+        box-shadow: 0px 9px 5px 1px ${p => p.theme.color.darker};
+      }
+    }
+  }
+
 `
 export default GlobalStyle

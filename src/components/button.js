@@ -6,7 +6,15 @@ import { Link } from 'gatsby'
 export const Button = styled.div`
   display: flex;
 
+  &.full {
+    a,
+    button {
+      margin: 40px 0px;
+    }
+  }
+
   a {
+    -webkit-appearance: none;
     margin: 0 auto;
     font-family: ${p => p.theme.font.display};
     text-transform: uppercase;
@@ -30,16 +38,32 @@ export const Button = styled.div`
   }
 `
 
-const Call = ({ children }) => {
+const Call = props => {
+  const { children, full, disabled, button } = props
   return (
-    <Button>
-      <Link to="/">{children}</Link>
+    <Button className={full ? 'full' : ''}>
+      {button ? (
+        <button disabled={!!disabled} type="button">
+          {children}
+        </button>
+      ) : (
+        <Link to="/">{children}</Link>
+      )}
     </Button>
   )
 }
 
 Call.propTypes = {
   children: PropTypes.string.isRequired,
+  full: PropTypes.bool,
+  disabled: PropTypes.bool,
+  button: PropTypes.bool,
+}
+
+Call.defaultProps = {
+  full: false,
+  disabled: false,
+  button: false,
 }
 
 export default Call

@@ -5,6 +5,7 @@ import parse from 'html-react-parser'
 
 import Container from '../../components/container'
 import Form from '../../components/forms/form'
+import Call from '../../components/button'
 
 const Pages = props => {
   const { data, location } = props
@@ -25,6 +26,7 @@ const Pages = props => {
   return (
     <Container title="Não encontrado" here={pathname}>
       <h1>Página não encontrada</h1>
+      <Call to="/">Voltar para a página principal</Call>
     </Container>
   )
 }
