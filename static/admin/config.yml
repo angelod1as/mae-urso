@@ -46,61 +46,13 @@ collections:
       - { name: background, label: Imagem de fundo, widget: image, required: false }
       - { name: body, label: Texto, widget: markdown, required: false }
       - { name: order, label: Ordem, widget: number }
-      # - name: call
-      #   label: Botão opcional
-      #   widget: object
-      #   fields:
-      #   - { name: link, label: URL do botão, widget: number }
-      #   - { name: text, label: Texto, widget: string }
-      # - name: Features
-      #   label: Features (só use no menu Features)
-      #   widget: object
-      #   fields:
-      #     - { name: icon, label: Ícone quadrado, widget: image, required: false }
-      #     - { name: feature, label: Descrição, widget: markdown, required: false }
 
-  # - name: portfolio
-  #   label: portfolio
-  #   folder: content/portfolio
-  #   create: true
-  #   fields:
-  #     - { name: date, label: Data, widget: date }
-  #     - { name: title, label: Título, widget: string }
-  #     - name: descGroup
-  #       label: Descrições
-  #       widget: object
-  #       fields:
-  #         - { name: desc, label: Descrição curta, widget: string }
-  #         - { name: longdesc, label: Descrição sidebar, widget: text }
-  #     - { name: tags, label: Tags, widget: list }
-  #     - { name: thumb, label: Imagem do cardapio, widget: image }
-  #     - { name: body, label: Texto, widget: markdown }
-  #     - name: others
-  #       label: Outras
-  #       widget: object
-  # - name: pages
-  #   label: pages
-  #   folder: content
-  #   create: true
-  #   fields:
-  #     - { name: date, label: Date, widget: date }
-  #     - { name: title, label: Title }
-  #     - name: descGroup
-  #       label: Descrições
-  #       widget: object
-  #       fields:
-  #         - { name: desc, label: Descrição curta, widget: string }
-  #         - { name: longdesc, label: Descrição sidebar, widget: text }
-  #     - { name: body, label: Texto, widget: markdown }
-  #     - { name: cardapio, label: Add to cardapio, widget: boolean, default: true, required: false }
-  #     - { name: category, label: Category, widget: string, required: false }
-  #     - { name: order, label: Ordem, widget: number, required: false }
-  # - name: cardapio
-  #   label: cardapio
-  #   folder: content/cardapio
-  #   create: true
-  #   fields:
-  #     - { name: date, label: Date, widget: date }
-  #     - { name: title, label: Title }
-  #     - { name: body, label: Texto, widget: markdown }
-  #     - { name: order, label: Ordem, widget: number, required: false }
+  - name: pages
+    label: Páginas
+    folder: content
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Título, widget: string }
+      - { name: body, label: Texto, widget: markdown }
+      - { name: form, label: Nome do formulário, widget: string, required: false }
