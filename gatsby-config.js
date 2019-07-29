@@ -3,8 +3,8 @@ const path = require('path')
 module.exports = {
   siteMetadata: {
     title: `Mãe Urso Culinária`,
-    description: `Homepage for Mãe Urso cooking and events`,
-    author: `@angelod1as`,
+    description: `Homepage for Mãe Urso catering and events`,
+    author: `@_cronofobico`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
