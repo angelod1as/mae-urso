@@ -2,7 +2,6 @@
 title: Call
 order: 2
 ---
-
-O que acha de experimentar uma comida top da balada?
+Que tal um cardápio feito de acordo com sua necessidade?
 
 [Vem com a gente!](/contato)
