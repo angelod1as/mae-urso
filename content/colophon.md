@@ -3,7 +3,7 @@ title: Colophon
 ---
 Desenvolvido por [Angelo Dias](http://www.angelodias.com.br), sempre à disposição para pequenos e grandes projetos. [Clique para saber mais](http://www.angelodias.com.br).
 
-![](/../public/assets/colophon-logos.png)
+![](/assets/colophon-logos.png)
 
 Site construído em [React](https://reactjs.org/), utilizando [Gatsby](https://www.gatsbyjs.org/) para exibição estática e [Netlify](https://www.netlify.com/) para gerenciamento de conteúdo.
 
