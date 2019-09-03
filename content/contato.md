@@ -2,5 +2,4 @@
 title: Contato
 form: Contato
 ---
-
-Testando Contat!
+Para dúvidas, sugestões e agendamentos, envie um e-mail para mae.urso.cozinha@gmail.com
