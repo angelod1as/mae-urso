@@ -2,15 +2,12 @@
 title: Pães
 form: Pães
 ---
+# Clube do Pão Caseiro
 
-Aoooo
-as
-asd
-as
-d
+Um dos nossos serviços exclusivos é o **Clube do Pão Caseiro**, que acontece na cidade de São Paulo. A proposta é que o cliente adquira uma assinatura* que lhe dá direito a quatro pães caseiros, que podem ser solicitados um a um durante um intervalo de até três meses. Assim, quando pintar aquela ocasião que pede por um pão caseiro, basta entrar em contato que entregamos para você em até 24h.
 
+Temos várias opções de massas e de recheios, com novidades sazonais frequentemente!
 
-asd
-asd
+Para participar, preencha o formulário abaixo para começar a sua assinatura!
 
-s
+\* O valor da assinatura varia de acordo com a distância do cliente para o centro de São Paulo, onde acontece a produção dos pães.
