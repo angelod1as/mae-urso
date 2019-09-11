@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import uuid from 'uuid/v1'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import Container from '../../components/container'
 
@@ -50,14 +51,15 @@ const Cardapios = props => {
       <h1>Cardápios</h1>
       {edges.map(each => {
         const { frontmatter, fields } = each.node
-        const { title, thumb, descGroup } = frontmatter
+        const { title, descGroup, thumbnail } = frontmatter
+        console.log(frontmatter)
+
+        const { fluid } = thumbnail ? thumbnail.childImageSharp : null
         const { longdesc, desc } = descGroup
         return (
           <Tile key={uuid()}>
             <Link to={fields.fullPath}>
-              <figure>
-                <img src={thumb} alt="" />
-              </figure>
+              {thumbnail ? <Img fluid={fluid} /> : ''}
               <div>
                 <h2>{title}</h2>
                 <p>{longdesc || desc}</p>
@@ -105,7 +107,13 @@ export const homeQuery = graphql`
           }
           frontmatter {
             title
-            thumb
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 800, maxHeight: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             descGroup {
               desc
               longdesc

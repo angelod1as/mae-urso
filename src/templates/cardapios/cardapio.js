@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import parse from 'html-react-parser'
 import styled from 'styled-components'
 import uuid from 'uuid/v1'
+import Img from 'gatsby-image'
 
 import Container from '../../components/container'
 import WithIcon from './with-icons'
@@ -53,33 +54,31 @@ const Cardapio = props => {
   const { frontmatter, html } = data.markdownRemark
   const { longdesc = null, desc } = frontmatter.descGroup
 
+  const { title, thumbnail, include } = frontmatter
+  const { fluid } = thumbnail ? thumbnail.childImageSharp : null
+
   const Title = styled.h1``
   const Lead = styled.p``
   const Html = styled.div``
-  const Thumb = styled.figure`
-    margin-top: 0;
-  `
 
   return (
-    <Container title={frontmatter.title} here={pathname}>
-      <Thumb>
-        <img src={frontmatter.thumb} alt="" />
-      </Thumb>
-      <Title>{frontmatter.title}</Title>
+    <Container title={title} here={pathname}>
+      {thumbnail ? <Img fluid={fluid} /> : ''}
+      <Title>{title}</Title>
       <Lead>{longdesc || desc}</Lead>
       <Divider>Detalhes</Divider>
       <Html>{parse(html)}</Html>
-      {frontmatter.include.length > 0 ? (
+      {include.length > 0 ? (
         <div>
           <Divider>Incluso no serviço</Divider>
-          {frontmatter.include.map(each => {
+          {include.map(each => {
             return <WithIcon key={uuid()} item={each} />
           })}
         </div>
       ) : (
         ''
       )}
-      <CallBtn>Contratar</CallBtn>
+      <CallBtn to="contato">Contratar</CallBtn>
     </Container>
   )
 }
@@ -91,12 +90,17 @@ export const pageQuery = graphql`
       frontmatter {
         date
         title
-        thumb
         descGroup {
           longdesc
           desc
         }
-        thumb
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 800, maxHeight: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         include
       }
     }
@@ -114,6 +118,7 @@ Cardapio.propTypes = {
           desc: PropTypes.string.isRequired,
           longdesc: PropTypes.string,
         }),
+        thumbnail: PropTypes.shape().isRequired,
       }),
       html: PropTypes.string.isRequired,
     }),

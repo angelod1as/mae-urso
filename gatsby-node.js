@@ -83,7 +83,6 @@ exports.createPages = async ({ actions, graphql }) => {
               }
               frontmatter {
                 title
-                thumb
                 date
                 order
                 thumbnail {

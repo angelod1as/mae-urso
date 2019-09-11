@@ -1,24 +1,45 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, Link, StaticQuery } from 'gatsby'
-import uuid from 'uuid/v1'
+import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
+// import PropTypes from 'prop-types'
+// import uuid from 'uuid/v1'
 
 import Roll from './roll'
+
+const Wrapper = styled.div`
+  margin: 50px auto;
+  h2 {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+`
 
 const CardapioRoll = () => {
   return (
     <StaticQuery
       query={graphql`
-        query CardapioRoll {
-          allMarkdownRemark(filter: { fields: { type: { eq: "cardapio" } } }) {
+        query cardapioRoll {
+          allMarkdownRemark(
+            filter: { fields: { type: { eq: "cardapios" } } }
+            limit: 3
+            sort: { order: DESC, fields: frontmatter___date }
+          ) {
             edges {
               node {
-                html
                 fields {
                   slug
                   type
                   fullPath
+                }
+                frontmatter {
+                  title
+                  thumbnail {
+                    childImageSharp {
+                      fluid(maxWidth: 800, maxHeight: 800) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -26,7 +47,13 @@ const CardapioRoll = () => {
         }
       `}
       render={data => {
-        console.log('oi')
+        console.log(data)
+        return (
+          <Wrapper>
+            <h2>Últimos cardápios</h2>
+            <Roll data={data} />
+          </Wrapper>
+        )
       }}
     />
   )

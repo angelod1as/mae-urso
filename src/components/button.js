@@ -39,7 +39,7 @@ export const Button = styled.div`
 `
 
 const Call = props => {
-  const { children, full, disabled, button } = props
+  const { children, full, disabled, button, to } = props
   return (
     <Button className={full ? 'full' : ''}>
       {button ? (
@@ -47,7 +47,7 @@ const Call = props => {
           {children}
         </button>
       ) : (
-        <Link to="/">{children}</Link>
+        <Link to={to || '/'}>{children}</Link>
       )}
     </Button>
   )
@@ -55,12 +55,14 @@ const Call = props => {
 
 Call.propTypes = {
   children: PropTypes.string.isRequired,
+  to: PropTypes.string,
   full: PropTypes.bool,
   disabled: PropTypes.bool,
   button: PropTypes.bool,
 }
 
 Call.defaultProps = {
+  to: null,
   full: false,
   disabled: false,
   button: false,
