@@ -4,7 +4,7 @@ title: Jornada Global
 descGroup:
   desc: Finger foods que reúnem sabores de vários locais do mundo para entreterem seus convidados
   longdesc:
-thumb: https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
+thumbnail: https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
 include:
   - Louças e Talheres
   - Compra dos ingredientes

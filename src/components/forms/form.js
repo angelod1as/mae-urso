@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const config = {
   script:
-    'https://script.google.com/a/angelodias.com.br/macros/s/AKfycbyNzwmRKak0_9hBat41RrkNhJaqeA6KxiaJPkic/exec',
+    'https://script.google.com/macros/s/AKfycbyEej5bd9kCFYAcdPX0mC2r5JTQ4ouajQ3P1jZBeOeT9u36Wlo/exec',
   sheet: 'responses',
   // email: '',
 }
@@ -134,34 +134,34 @@ class Form extends Component {
               <div>
                 <fieldset>
                   <label htmlFor="name">
-                    Name:
+                    Nome:
                     <input
                       onChange={this.handleChange}
                       id="name"
                       key="name"
                       name="name"
-                      placeholder="What your Mom calls you"
+                      placeholder="Seu nome"
                       value={name}
                     />
                   </label>
                 </fieldset>
                 <fieldset>
                   <label htmlFor="message">
-                    Message:
+                    Mensagem:
                     <textarea
                       onChange={this.handleChange}
                       id="message"
                       key="message"
                       name="message"
                       rows={10}
-                      placeholder="Tell us what's on your mind..."
+                      placeholder="Conta pra mim..."
                       value={message}
                     />
                   </label>
                 </fieldset>
                 <fieldset>
                   <label htmlFor="email">
-                    Your Email Address:
+                    E-mail:
                     <input
                       onChange={this.handleChange}
                       id="email"
@@ -169,7 +169,7 @@ class Form extends Component {
                       name="email"
                       type="email"
                       required
-                      placeholder="your.name@email.com"
+                      placeholder="seu.nome@email.com"
                       value={email}
                     />
                   </label>

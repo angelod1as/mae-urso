@@ -56,3 +56,22 @@ collections:
       - { name: title, label: Título, widget: string }
       - { name: body, label: Texto, widget: markdown }
       - { name: form, label: Nome do formulário, widget: string, required: false }
+
+  - name: cardapios
+    label: Cardápios
+    folder: content/cardapios
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    fields:
+      - { name: date, label: Data de publicação, widget: date }
+      - { name: title, label: Título, widget: string }
+      - name: descGroup
+        label: Descrições
+        widget: object
+        fields:
+          - { name: desc, label: Descrição curta, widget: string }
+          - { name: longdesc, label: Descrição sidebar, widget: text }
+      # - { name: tags, label: Tags, widget: list }
+      - { name: thumbnail, label: Imagem do post, widget: image }
+      - { name: body, label: Texto, widget: markdown }
+      - { name: include, label: O que o menu inclui, widget: list }
