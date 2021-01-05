@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Angelo Dias <angelo@angelodias.com.br>",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "gatsby": "^2.13.33",
     "gatsby-background-image": "^0.8.0",
     "gatsby-cli": "^2.7.17",
